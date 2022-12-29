@@ -3,6 +3,7 @@ $(readyNow);
 function readyNow() {
     console.log('document ready');
     $('#submit').on('click', newUser);
+    $('body').on('click', '.user-button', createBlock);
 }
 class UserInfo {
     constructor(firstName, lastName, age) {
@@ -27,15 +28,24 @@ const newUser = () => {
 const newUserButton = (userInput) => {
     console.log('in newUserButton', userId);
     $('#users').append(`
-        <button id="${userId}">
+        <button id="${userId}" class="user-button" data-firstname=${userInput.firstName} data-lastname=${userInput.lastName}>
             ${userInput.firstName} ${userInput.lastName}
         </button>
     `);
     clearInputFields();
 };
 const clearInputFields = () => {
-    console.log('in clearInputFields');
     $('#user-firstname').val("");
     $('#user-lastname').val("");
     $('#user-age').val("");
+};
+const createBlock = (event) => {
+    console.log('in createBlock');
+    let firstName = $(event.currentTarget).data('firstname');
+    let lastName = $(event.currentTarget).data('lastname');
+    $('#blocks').append(`
+        <div class="block">
+            <h5>Block by: ${firstName} ${lastName}</h5>
+        </div>
+    `);
 };

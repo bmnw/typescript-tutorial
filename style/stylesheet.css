@@ -2,3 +2,16 @@ body {
     background-color: grey;
     color: white;
 }
+
+.block {
+    background-color: lightgreen ;
+    margin: 5px ;
+    height: 100px;
+    width: 100px;
+}
+
+.block-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
