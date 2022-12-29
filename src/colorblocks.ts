@@ -11,6 +11,7 @@ interface User {
     lastName: string;
     age: number;
     id: number;
+    numBlocks: number;
 }
 
 class UserInfo {
@@ -18,12 +19,14 @@ class UserInfo {
     lastName: string;
     age: number;
     id: number;
+    numBlocks: number;
 
-    constructor(firstName: string, lastName: string, age: number, id: number) {
+    constructor(firstName: string, lastName: string, age: number, id: number, numBlocks: number) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.id = id;
+        this.numBlocks = numBlocks;
     } 
 }
 
@@ -37,7 +40,8 @@ const newUser = () => {
     let lastName: string = $('#user-lastname').val() as string;
     let age: number = $('#user-age').val() as number;
     let id: number = userId;
-    let user: User = new UserInfo(firstName, lastName, age, id);
+    let numBlocks: number = 0;
+    let user: User = new UserInfo(firstName, lastName, age, id, numBlocks);
     existingUsers.push(user);
     console.log(existingUsers);
     newUserButton(user);
@@ -61,12 +65,12 @@ const clearInputFields = () => {
 
 const createBlock = (event: any) => {
     console.log('in createBlock');
-    let firstName = $(event.currentTarget).data('firstname');
-    let lastName = $(event.currentTarget).data('lastname');
-    let age = $(event.currentTarget).data('age');
+    let firstName: string = $(event.currentTarget).data('firstname');
+    let lastName: string = $(event.currentTarget).data('lastname');
+    let age: number = $(event.currentTarget).data('age');
     $('#blocks').append(`
         <div class="block">
-            <h5>Block by: ${firstName} ${lastName}, age ${age}</h5>
+            <h5>Block by: ${firstName} ${lastName}, age ${age}.</h5>
         </div>
     `);
 }

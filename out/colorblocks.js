@@ -6,29 +6,33 @@ function readyNow() {
     $('body').on('click', '.user-button', createBlock);
 }
 class UserInfo {
-    constructor(firstName, lastName, age) {
+    constructor(firstName, lastName, age, id, numBlocks) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.id = id;
+        this.numBlocks = numBlocks;
     }
 }
 let existingUsers = [];
 let userId = 0;
 const newUser = () => {
     console.log('in newUser');
+    userId++;
     let firstName = $('#user-firstname').val();
     let lastName = $('#user-lastname').val();
     let age = $('#user-age').val();
-    let user = new UserInfo(firstName, lastName, age);
+    let id = userId;
+    let numBlocks = 0;
+    let user = new UserInfo(firstName, lastName, age, id, numBlocks);
     existingUsers.push(user);
     console.log(existingUsers);
-    userId++;
     newUserButton(user);
 };
 const newUserButton = (userInput) => {
     console.log('in newUserButton', userId);
     $('#users').append(`
-        <button id="${userId}" class="user-button" data-firstname=${userInput.firstName} data-lastname=${userInput.lastName} data-age=${userInput.age}>
+        <button id="${userId}" class="user-button" data-userid=${userInput.id} data-firstname=${userInput.firstName} data-lastname=${userInput.lastName} data-age=${userInput.age}>
             ${userInput.firstName} ${userInput.lastName}
         </button>
     `);
@@ -46,7 +50,7 @@ const createBlock = (event) => {
     let age = $(event.currentTarget).data('age');
     $('#blocks').append(`
         <div class="block">
-            <h5>Block by: ${firstName} ${lastName}, age ${age}</h5>
+            <h5>Block by: ${firstName} ${lastName}, age ${age}.</h5>
         </div>
     `);
 };
