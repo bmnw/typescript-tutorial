@@ -12,6 +12,7 @@ class UserInfo {
     }
 }
 let existingUsers = [];
+let userId = 0;
 const newUser = () => {
     console.log('in newUser');
     let firstName = $('#user-firstname').val();
@@ -20,4 +21,14 @@ const newUser = () => {
     let user = new UserInfo(firstName, lastName, age);
     existingUsers.push(user);
     console.log(existingUsers);
+    userId++;
+    newUserButton(user);
+};
+const newUserButton = (userInput) => {
+    console.log('in newUserButton', userId);
+    $('#users').append(`
+        <button id="${userId}">
+            ${userInput.firstName} ${userInput.lastName}
+        </button>
+    `);
 };
