@@ -38,7 +38,7 @@ const newUser = () => {
     newUserButton(user);
 }
 
-const newUserButton= (userInput: User) => {
+const newUserButton = (userInput: User) => {
     console.log('in newUserButton', userId);
     $('#users').append(`
         <button id="${userId}">
@@ -46,4 +46,11 @@ const newUserButton= (userInput: User) => {
         </button>
     `);
     clearInputFields();
+}
+
+const clearInputFields = () => {
+    console.log('in clearInputFields');
+    $('#user-firstname').val("");
+    $('#user-lastname').val("");
+    $('#user-age').val("");
 }

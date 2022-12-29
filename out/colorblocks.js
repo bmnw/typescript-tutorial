@@ -31,4 +31,11 @@ const newUserButton = (userInput) => {
             ${userInput.firstName} ${userInput.lastName}
         </button>
     `);
+    clearInputFields();
+};
+const clearInputFields = () => {
+    console.log('in clearInputFields');
+    $('#user-firstname').val("");
+    $('#user-lastname').val("");
+    $('#user-age').val("");
 };
