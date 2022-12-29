@@ -19,5 +19,8 @@
   "homepage": "https://github.com/bmnw/typescript-tutorial#readme",
   "devDependencies": {
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.14"
   }
 }
