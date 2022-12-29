@@ -2,6 +2,7 @@
 $(readyNow);
 function readyNow() {
     console.log('document ready');
+    $('#submit').on('click', newUser);
 }
 class UserInfo {
     constructor(firstName, lastName, age) {
@@ -10,5 +11,13 @@ class UserInfo {
         this.age = age;
     }
 }
-// arguments for UserInfo will be the user-entered info from the DOM
-// const user: User = new UserInfo();
+let existingUsers = [];
+const newUser = () => {
+    console.log('in newUser');
+    let firstName = $('#user-firstname').val();
+    let lastName = $('#user-lastname').val();
+    let age = $('#user-age').val();
+    let user = new UserInfo(firstName, lastName, age);
+    existingUsers.push(user);
+    console.log(existingUsers);
+};

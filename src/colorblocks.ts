@@ -2,6 +2,7 @@ $(readyNow);
 
 function readyNow () {
     console.log('document ready');
+    $('#submit').on('click', newUser);
 }
 
 interface User {
@@ -22,5 +23,14 @@ class UserInfo {
     } 
 }
 
-// arguments for UserInfo will be the user-entered info from the DOM
-// const user: User = new UserInfo();
+let existingUsers: User[] = [];
+
+const newUser = () => {
+    console.log('in newUser');
+    let firstName: string = $('#user-firstname').val() as string;
+    let lastName: string = $('#user-lastname').val() as string;
+    let age: number = $('#user-age').val() as number;
+    let user: User = new UserInfo(firstName, lastName, age);
+    existingUsers.push(user);
+    console.log(existingUsers);
+}
