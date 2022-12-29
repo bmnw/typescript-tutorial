@@ -42,7 +42,7 @@ const newUser = () => {
 const newUserButton = (userInput: User) => {
     console.log('in newUserButton', userId);
     $('#users').append(`
-        <button id="${userId}" class="user-button" data-firstname=${userInput.firstName} data-lastname=${userInput.lastName}>
+        <button id="${userId}" class="user-button" data-firstname=${userInput.firstName} data-lastname=${userInput.lastName} date-age=${userInput.age}>
             ${userInput.firstName} ${userInput.lastName}
         </button>
     `);
@@ -59,9 +59,10 @@ const createBlock = (event: any) => {
     console.log('in createBlock');
     let firstName = $(event.currentTarget).data('firstname');
     let lastName = $(event.currentTarget).data('lastname');
+    let age = $(event.currentTarget).data('age');
     $('#blocks').append(`
         <div class="block">
-            <h5>Block by: ${firstName} ${lastName}</h5>
+            <h5>Block by: ${firstName} ${lastName}, age ${age}</h5>
         </div>
     `);
 }

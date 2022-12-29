@@ -4,10 +4,14 @@ body {
 }
 
 .block {
-    background-color: lightgreen ;
-    margin: 5px ;
+    background-color: rgb(33, 136, 33) ;
+    margin: 5px;
     height: 100px;
     width: 100px;
+    padding: 5px;
+    box-shadow: 5px 5px 3px darkgray;
+    border: 2px solid rgb(33, 136, 33);
+    border-radius: 5px;
 }
 
 .block-container {
