@@ -1,8 +1,8 @@
-$(readyNow);
+// $(readyNow);
 
-function readyNow () {
-    console.log('document ready');
-}
+// function readyNow () {
+//     console.log('document ready');
+// }
 
 interface Owner {
     firstName: string;
@@ -38,3 +38,5 @@ class CarForSale {
 }
 
 let carsForSale: Car[] = [];
+let owners: Owner[] = [];
+
