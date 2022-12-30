@@ -32,6 +32,7 @@ class UserInfo {
 
 let existingUsers: User[] = [];
 let userId: number = 0;
+let numBlocks: number = 0;
 
 const newUser = () => {
     console.log('in newUser');
@@ -68,9 +69,14 @@ const createBlock = (event: any) => {
     let firstName: string = $(event.currentTarget).data('firstname');
     let lastName: string = $(event.currentTarget).data('lastname');
     let age: number = $(event.currentTarget).data('age');
+    numBlocks++;
     $('#blocks').append(`
         <div class="block">
             <h5>Block by: ${firstName} ${lastName}, age ${age}.</h5>
         </div>
+    `);
+    $('#num-blocks').empty();
+    $('#num-blocks').append(`
+        <span id="num-blocks">${numBlocks}</span>
     `);
 }
